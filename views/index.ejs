@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books</title>
+  <link rel="stylesheet" type="text/css" href="/styles/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="<%= backgroundClass %>">
+  <div class="title">
+    <h1>Classics of Ancient Rome and Greece</h1>
+  </div>
+  <div class="form1">
+    <form action="/recipe" method="POST" class="buttons">
+      <div id="romanButtons">
+        <button type="submit" name="choice" value="roman1" class="rome">Roman book I</button>
+        <button type="submit" name="choice" value="roman2" class="rome">Roman book II</button>
+        <button type="submit" name="choice" value="roman3" class="rome">Roman book III</button>
+        <button type="submit" name="choice" value="roman4" class="rome">Roman book IV</button>
+        <button type="submit" name="choice" value="roman5" class="rome">Roman book V</button>
+      </div>
+
+      <div id="greekButtons">
+        <button type="submit" name="choice" value="greek1" class="greece">Greek book I</button>
+        <button type="submit" name="choice" value="greek2" class="greece">Greek book II</button>
+        <button type="submit" name="choice" value="greek3" class="greece">Greek book III</button>
+        <button type="submit" name="choice" value="greek4" class="greece">Greek book IV</button>
+        <button type="submit" name="choice" value="greek5" class="greece">Greek book V</button>
+      </div>
+    </form>
+  </div>
+  <div class="container"> 
+    <div id="bookContainer">
+      <% if (books && Object.keys(books).length) { %>
+        <h2 id="bookTitle"><span class="label">Title:</span> <%= books.title %></h2>
+        <h3><span class="label">Author:</span> <%= books.author %></h3>
+        <h3 class="label1"><span class="label">Description:</span> <%= books.description %></h3>
+        <h3><span class="label">Publication Date:</span> <%= books.publication %></h3>
+        <img class="book-photo" src="<%= books.image %>" alt="<%= books.title %>">
+      <% } else { %>
+        <h2>Pick your favourite book</h2>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>
